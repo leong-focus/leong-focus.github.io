@@ -1,0 +1,22 @@
+.gallery-sound-toggle{position:fixed;top:22px;right:max(20px,4vw);z-index:100;display:grid;place-items:center;width:50px;height:50px;padding:7px;border:1px solid #b394615e;border-radius:50%;background:radial-gradient(circle at 38% 28%,#403c3599,#171b1da6 78%);box-shadow:0 0 0 2px #c8a56d14,0 0 12px #ba8b3c1c,inset 0 0 8px #b59a6320;color:#f1e8d6;cursor:pointer;touch-action:manipulation}
+.gallery-sound-toggle svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round}
+.gallery-sound-toggle .sound-bars path{transform-origin:50% 50%;animation:gallery-sound-wave 1.15s ease-in-out infinite}
+.gallery-sound-toggle .sound-bars path:nth-child(2n){animation-delay:-.25s;animation-duration:.95s}
+.gallery-sound-toggle .sound-bars path:nth-child(3n){animation-delay:-.65s;animation-duration:1.4s}
+.gallery-sound-toggle .sound-slash{display:none;stroke-width:1.7}
+.gallery-sound-toggle[aria-pressed="false"] .sound-bars path{animation:none;opacity:.55}
+.gallery-sound-toggle[aria-pressed="false"] .sound-slash{display:block}
+.gallery-sound-toggle:active{transform:scale(.94)}
+.gallery-sound-toggle:focus-visible{outline:2px solid #9c7c48;outline-offset:4px}
+.tools{margin-right:66px}
+body:has(#envelope)>header{padding-right:70px}
+@keyframes gallery-sound-wave{0%,100%{transform:scaleY(.48);opacity:.7}50%{transform:scaleY(1);opacity:1}}
+@media(max-width:600px),(max-height:550px){.gallery-sound-toggle{top:16px;right:18px;width:44px;height:44px}.tools{margin-right:56px}}
+@media(prefers-reduced-motion:reduce){.gallery-sound-toggle .sound-bars path{animation:none}}
+
+/* Reserve a separate right-hand column for the sound control, including the postcard title. */
+body:has(#envelope) .gallery-sound-toggle{right:12px}
+body:has(#envelope)>header{padding-right:88px;gap:18px}
+body:has(#envelope)>header>span{min-width:0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+body:has(#envelope)>header>span small{margin-left:0}
+@media(max-width:700px){body:has(#envelope)>header{padding-right:78px;gap:10px}body:has(#envelope)>header>span{gap:6px}body:has(#envelope) .gallery-sound-toggle{right:10px}}

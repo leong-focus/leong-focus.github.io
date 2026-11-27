@@ -1,0 +1,61 @@
+/* Placement follows each scene's source coordinate system and its cover crop. */
+.wash{background:linear-gradient(0deg,#f4efe2a8,transparent 13%);z-index:4;pointer-events:none}aside{display:none}section{left:auto;right:4vw;top:auto;bottom:26%;max-width:29%;padding:14px 18px;background:#f8f3e4df;border-left:1px solid #a99b7e77;border-radius:2px}section h1{font-size:clamp(19px,2vw,30px);margin:9px 0}#description{font-size:clamp(12px,1vw,16px)}#period{font-size:12px}.tools{display:flex;align-items:center;gap:10px}.compare{background:#f6f1e4dd;text-decoration:none;color:#526047;border:1px solid #867c6555;border-radius:24px;font-size:12px;padding:7px 15px;letter-spacing:.05em}
+#artifact{position:absolute;z-index:3;left:0;top:0;bottom:auto;width:0;height:0;transform:none;pointer-events:none;will-change:left,top,width,height}#artifact .body,#artifact .lip{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;filter:none}#artifact .body{z-index:2}#artifact .lip{z-index:4;clip-path:inset(5% 0 89% 0)}#contents{position:absolute;left:50%;bottom:96%;width:100%;height:auto;transform:translateX(-50%);z-index:3;opacity:0;transition:opacity .65s ease}#contents img{position:relative;display:block;width:100%;height:auto;object-fit:contain;filter:none}#contents.lotus{width:138%}#contents.scrolls{width:95%}#contents.pink{width:170%}
+
+#glass{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0}#glass svg{width:100%;height:100%;display:block}nav{bottom:1.5%;height:85px;background:radial-gradient(ellipse at bottom,#f8f4e4b9,transparent 75%)}nav svg{height:64px}.eras{inset:0 4% 24px}.track{bottom:23px}footer{bottom:1%;z-index:5;font-size:9px}
+@media(orientation:portrait){section{left:6vw;right:auto;top:15%;bottom:auto;max-width:85%}nav{bottom:6%}.tools{gap:5px}.compare{padding:6px 8px}}@media(max-height:550px){section{padding:9px 12px;max-width:29%}#description{font-size:11px}section h1{font-size:19px}}
+@media(prefers-reduced-motion:reduce){#contents{transition:none}}
+
+@media(orientation:portrait){section{left:auto;right:4vw;top:auto;bottom:21%;max-width:44%;padding:10px 13px}section h1{font-size:20px}#description{font-size:12px}}
+
+/* The celadon surface stays clean throughout all four scenes. */
+
+
+
+
+#contents .stem-bridge{display:none;position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:0;pointer-events:none}#contents.pink .stem-bridge{display:block}#contents img{z-index:1}
+
+/* Preserve celadon hue: age is shown as local marks, never a gray wash. */
+#contents.pink{bottom:92%}#contents.pink .stem-bridge{display:none}
+
+#contents.scrolls{bottom:92%}
+
+#artifact .museum-light{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:0;mix-blend-mode:screen;background:radial-gradient(ellipse at 79% 18%,#fff4bacc,transparent 30%),radial-gradient(ellipse at 81% 48%,#e9ffcba6,transparent 29%),linear-gradient(105deg,transparent 45%,#efffbf55 76%,transparent 91%);mask:url('assets/vase.png') center/100% 100% no-repeat;-webkit-mask:url('assets/vase.png') center/100% 100% no-repeat}
+
+/* Lift the first and third scene cards as a whole; preserve their typography. */
+section.raised-card{margin-bottom:4vh}
+
+/* Relative to the original positions: first +8vh, third +2vh. */
+section[data-era="0"]{margin-bottom:8vh}
+section[data-era="2"]{margin-bottom:2vh}
+.postcard-entry{position:absolute;z-index:8;min-height:42px;padding:9px 23px;border:1px solid #677a6077;border-radius:3px;background:#faf8edeb;color:#344d38;font:17px "LXGW WenKai TC",KaiTi,serif;letter-spacing:.12em;box-shadow:0 3px 12px #33432a12;text-decoration:none;text-align:center;transition:background .2s,box-shadow .2s}
+.postcard-entry:hover{background:#fffdf5;box-shadow:0 4px 16px #33432a22}
+
+.postcard-entry{min-height:34px;padding:6px 15px;font-size:14px;letter-spacing:.08em;width:max-content!important}
+
+section[data-era="0"]{margin-bottom:10vh}
+section[data-era="2"]{margin-bottom:3vh}
+.postcard-entry{transform:translateX(-50%);padding:7px 22px;min-height:35px;font-size:14px;letter-spacing:.14em;border:1px solid #73836b88;border-radius:2px;color:#3e5542;background:linear-gradient(120deg,#fffef4ed,#eef1e6ed);box-shadow:0 2px 8px #52624412,inset 0 0 0 3px #fffdf6a0;white-space:nowrap}
+.postcard-entry:before,.postcard-entry:after{content:"·";color:#819175;margin:0 8px;font-size:12px}
+.postcard-entry:hover{background:#fffef5;border-color:#4f6c50;box-shadow:0 3px 10px #52624420,inset 0 0 0 3px #f0f2e7}
+
+/* Quiet celadon button: one solid fill, no white inset or hover recoloring. */
+.postcard-entry,.postcard-entry:hover{border:1px solid #89987b;border-radius:11px;background:#dce3cf;color:#344d39;box-shadow:none;transition:transform .12s}
+.postcard-entry:active{background:#bdcbae;border-color:#718367;transform:translateX(-50%) scale(.97)}
+
+/* Match the story card paper, with a shorter centered silhouette. */
+section[data-era="0"]{margin-bottom:12vh}
+.postcard-entry,.postcard-entry:hover{background:#f8f3e4df;border-color:#a99b7e77;color:#514b39;padding:7px 16px;letter-spacing:.08em;box-shadow:none}
+.postcard-entry:before,.postcard-entry:after{content:none}
+.postcard-entry:active{background:#e5dcc8;border-color:#a99b7e99}
+
+.postcard-entry,.postcard-entry:hover{padding:7px 20px;letter-spacing:.1em}
+.postcard-entry:before,.postcard-entry:after{content:"·";display:inline;color:#8d8065;margin:0 7px;font-size:13px}
+
+.postcard-entry,.postcard-entry:hover{padding:9px 5px;min-height:43px;font-size:18px;line-height:24px;color:#765437;font-weight:500;letter-spacing:.08em;background:#f8f3e4df}
+.postcard-entry:before,.postcard-entry:after{margin:0 6px;font-size:14px;color:#927657}
+.postcard-entry:active{background:#e5dcc8;color:#604329}
+
+.postcard-entry,.postcard-entry:hover{padding:9px 3px;letter-spacing:.03em;background:#e5dace;border-color:#b7a28b;color:#705039}
+.postcard-entry:before,.postcard-entry:after{content:"·";margin:0 3px;color:#967559}
+.postcard-entry:active{background:#d5c5b3;border-color:#a88e73;color:#604329}

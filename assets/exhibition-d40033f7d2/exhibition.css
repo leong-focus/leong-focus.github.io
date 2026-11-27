@@ -1,0 +1,398 @@
+.color-page.exhibition-page {
+  background: #38382e;
+  box-shadow: none;
+}
+
+.exhibition-page:not(.exhibition-arrival) > :not(.color-scene, .exhibition-ui, .exhibition-background, .model-loading, .load-error),
+.exhibition-arrival > :not(.color-scene, .exhibition-ui, .exhibition-background, .model-loading, .load-error, .scene-background, .decor, .handkerchief, .straw-mat, .color-contact-shadow, .color-bowl, .color-palette, .color-brush, .color-brush-holder, .paper-sign, .stage-nav, .topbar) {
+  display: none !important;
+}
+
+.exhibition-arrival > :is(.scene-background, .decor, .handkerchief, .straw-mat, .color-contact-shadow, .color-bowl, .color-palette, .color-brush, .color-brush-holder, .paper-sign, .stage-nav, .topbar) {
+  pointer-events: none;
+  animation: gallery-workbench-exit .72s ease-out both;
+  animation-duration: .72s !important;
+}
+
+.exhibition-arrival > :is(.color-bowl, .color-palette, .color-brush, .color-brush-holder) {
+  z-index: 6;
+  animation: gallery-tools-exit .62s cubic-bezier(.55, 0, .85, .45) both;
+  animation-duration: .62s !important;
+}
+
+.exhibition-arrival > :is(.scene-background, .decor, .handkerchief, .straw-mat, .color-contact-shadow) {
+  animation: none;
+  animation-duration: 0s !important;
+}
+
+@keyframes gallery-workbench-exit {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes gallery-tools-exit {
+  to { translate: 60cqw 0; opacity: 0; visibility: hidden; }
+}
+
+.exhibition-background {
+  position: absolute;
+  inset: 0;
+  background: url('/celadon/exhibition/screen-gallery.png') center / cover no-repeat;
+}
+
+.exhibition-page .exhibition-background { z-index: 3; }
+
+.exhibition-arrival .exhibition-background {
+  animation: gallery-background-enter 1s ease-in-out both;
+  animation-duration: 1s !important;
+}
+
+@keyframes gallery-background-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.exhibition-page .color-scene {
+  /* Center the existing perspective canvas on the D2C artifact position. */
+  inset: .6cqw 0 -.6cqw;
+  transform: translate(-6.75cqw, -.6cqw);
+  clip-path: inset(0 24.37%);
+  z-index: 4;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.exhibition-page.exhibition-arrival .color-scene {
+  transform: translate(calc(-6.75cqw * var(--gallery-progress, 0)), calc(-.6cqw * var(--gallery-progress, 0)));
+  clip-path: inset(0 calc(24.37% * var(--gallery-progress, 0)));
+}
+
+.exhibition-page .porcelain-canvas:focus {
+  outline: none;
+}
+
+.exhibition-ui {
+  --theme-button-background: url("/celadon/exhibition/theme-selected.png") center / 100.6% 101.35% no-repeat;
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  color: #42382d;
+  font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+}
+
+.exhibition-nav-content {
+  --gallery-unit: calc(100cqw / 874);
+  position: absolute;
+  top: calc(62 * var(--gallery-unit));
+  left: calc(16 * var(--gallery-unit));
+  width: calc(140 * var(--gallery-unit));
+  color: #3e2716;
+  font-family: "Source Han Serif CN", "Songti SC", SimSun, serif;
+}
+
+.exhibition-header {
+  position: absolute;
+  top: calc(19 * var(--gallery-unit));
+  left: calc(19 * var(--gallery-unit));
+  white-space: nowrap;
+}
+
+.exhibition-brand {
+  font-size: calc(20 * var(--gallery-unit));
+  font-weight: 400;
+  line-height: 1.18;
+}
+
+.exhibition-nav-content::before,
+.exhibition-nav-content::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.exhibition-nav-content::before {
+  left: calc(2 * var(--gallery-unit));
+  top: calc(9 * var(--gallery-unit));
+  width: calc(88 * var(--gallery-unit));
+  height: calc(15 * var(--gallery-unit));
+  background-image: url("/celadon/exhibition/nav-cloud.png");
+}
+
+.exhibition-nav-content::after {
+  left: calc(9 * var(--gallery-unit));
+  top: calc(47 * var(--gallery-unit));
+  width: calc(101 * var(--gallery-unit));
+  height: calc(12 * var(--gallery-unit));
+  background-image: url("/celadon/exhibition/nav-divider.png");
+}
+
+.exhibition-screen {
+  position: absolute;
+  background: center / cover no-repeat;
+}
+
+.exhibition-screen {
+  animation: exhibition-screen-enter 1.12s cubic-bezier(.22, 1, .36, 1) .12s both;
+  animation-duration: 1.12s !important;
+}
+
+@keyframes exhibition-screen-enter {
+  from { transform: translateX(var(--screen-entry-offset)); }
+  to { transform: none; }
+}
+
+.exhibition-screen-nav {
+  --screen-entry-offset: -20cqw;
+  left: -1.83cqw;
+  top: -7.094cqw;
+  width: 17.85cqw;
+  height: 53.09cqw;
+  background-image: url('/celadon/exhibition/screen-left.png');
+}
+
+.exhibition-screen-info {
+  --screen-entry-offset: 36cqw;
+  left: 67.62cqw;
+  top: -1.03cqw;
+  width: 34.67cqw;
+  height: 48.05cqw;
+  background-image: url('/celadon/exhibition/screen-right.png');
+}
+
+.exhibition-themes {
+  --theme-row-height: calc(41 * var(--gallery-unit));
+  --theme-row-gap: calc(7 * var(--gallery-unit));
+  position: absolute;
+  top: calc(69 * var(--gallery-unit));
+  left: calc(9 * var(--gallery-unit));
+  width: calc(117 * var(--gallery-unit));
+  display: grid;
+  gap: var(--theme-row-gap);
+}
+
+.exhibition-themes button {
+  --theme-icon-size: 34;
+  position: relative;
+  width: 100%;
+  height: var(--theme-row-height);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.exhibition-themes button:first-child { --theme-icon-size: 37; }
+.exhibition-themes button:nth-child(3) { --theme-icon-size: 33; }
+.exhibition-themes button:nth-child(4) { --theme-icon-size: 32; }
+
+.exhibition-theme-thumbnail,
+.exhibition-theme-label {
+  position: absolute;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.exhibition-theme-thumbnail {
+  left: calc(28 * var(--gallery-unit));
+  width: calc(var(--theme-icon-size) * var(--gallery-unit));
+  height: calc(var(--theme-icon-size) * var(--gallery-unit));
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.exhibition-theme-label {
+  left: calc(76 * var(--gallery-unit));
+  white-space: nowrap;
+  font-size: max(10px, calc(14 * var(--gallery-unit)));
+  line-height: 1.3;
+  pointer-events: none;
+}
+
+.exhibition-themes::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--theme-row-height);
+  background: var(--theme-button-background);
+  pointer-events: none;
+  transform: translateY(calc(var(--selected-theme) * (var(--theme-row-height) + var(--theme-row-gap))));
+  transition: transform .42s cubic-bezier(.22, 1, .36, 1);
+  transition-duration: .42s !important;
+}
+
+.exhibition-themes button:not(:disabled):hover .exhibition-theme-thumbnail {
+  filter: brightness(1.08);
+}
+
+.exhibition-panel-content {
+  position: absolute;
+  inset: 4.55cqw 4.45cqw auto 3.3cqw;
+  text-shadow: 0 0 .34cqw #f2e7cebd;
+}
+
+.exhibition-collection {
+  font-size: 1.01cqw;
+  line-height: 1.3;
+  letter-spacing: .17cqw;
+  color: #514837;
+}
+
+.exhibition-screen-info h1 {
+  margin: .72cqw 0 .75cqw;
+  font-size: 1.98cqw;
+  font-weight: 600;
+  line-height: 1.36;
+  letter-spacing: .08cqw;
+  text-wrap: balance;
+}
+
+.exhibition-period {
+  display: flex;
+  align-items: center;
+  gap: 1cqw;
+  font-size: 1.15cqw;
+  color: #504738;
+}
+
+.exhibition-seal {
+  border: 1px solid #8e604c9e;
+  color: #734d3c;
+  padding: .23cqw .43cqw;
+  font-size: .86cqw;
+  letter-spacing: .09cqw;
+}
+
+.exhibition-current {
+  position: relative;
+  box-sizing: border-box;
+  margin-top: 1.35cqw;
+  min-height: 11.9cqw;
+  padding-top: 1.17cqw;
+  border-top: 1px solid #62533d69;
+}
+
+.exhibition-eyebrow {
+  color: #625642;
+  font-size: 1.01cqw;
+  letter-spacing: .12cqw;
+}
+
+.exhibition-current h2 {
+  margin: .58cqw 0 .56cqw;
+  font-size: 1.57cqw;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.exhibition-current p {
+  margin: 0;
+  font-size: 1.24cqw;
+  line-height: 1.75;
+}
+
+.exhibition-current-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.exhibition-actions {
+  display: flex;
+  gap: .7cqw;
+  margin-top: .85cqw;
+  white-space: nowrap;
+}
+
+.exhibition-actions button,
+.exhibition-actions a {
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  flex: 0 1 10.72cqw;
+  min-height: max(26px, 3.75cqw);
+  padding: .25cqw .7cqw;
+  border: 0;
+  background: var(--theme-button-background);
+  color: #3e2716;
+  font-family: "Source Han Serif CN", "Songti SC", SimSun, serif;
+  font-size: max(10px, 1.38cqw);
+  line-height: 1.3;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.exhibition-actions button:hover,
+.exhibition-actions a:hover {
+  filter: brightness(1.1);
+}
+
+.exhibition-keepsake {
+  position: absolute;
+  top: 33.2cqw;
+  left: 4.7cqw;
+  display: block;
+  width: 18.7cqw;
+  aspect-ratio: 1872 / 420;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.exhibition-gallery-link {
+  display: grid;
+  place-items: center;
+  background: var(--theme-button-background);
+  color: #3e2716;
+  font-family: "Source Han Serif CN", "Songti SC", SimSun, serif;
+  font-size: max(11px, 1.4cqw);
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.exhibition-gallery-link:hover {
+  filter: brightness(1.1);
+}
+
+.exhibition-ui button:focus-visible,
+.exhibition-ui a:focus-visible {
+  outline: 2px solid #375847;
+  outline-offset: 2px;
+}
+
+.exhibition-ui button:disabled {
+  cursor: wait;
+  opacity: .55;
+}
+
+.exhibition-hint {
+  position: absolute;
+  left: 43.25%;
+  bottom: 3%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: #f6eddc;
+  font-size: 1.05cqw;
+  letter-spacing: .1cqw;
+  text-shadow: 0 1px 3px #231c13;
+}
+
+@container (max-width: 760px) {
+  .exhibition-collection,
+  .exhibition-eyebrow {
+    font-size: max(1.01cqw, 8px);
+  }
+
+  .exhibition-current p {
+    font-size: max(1.24cqw, 10px);
+    line-height: 1.55;
+  }
+
+}

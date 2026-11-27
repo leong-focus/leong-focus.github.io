@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1280">
+  <defs>
+    <mask id="clean-card" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="1280">
+      <rect width="1280" height="1280" fill="black"/>
+      <path d="M165 62 H550 C550 122 590 170 640 170 C690 170 730 122 730 62 H1100 V1200 H165 Z" fill="white"/>
+    </mask>
+  </defs>
+  <image href="/assets/artifact5-new.png" width="1280" height="1280" preserveAspectRatio="none" mask="url(#clean-card)"/>
+</svg>

@@ -1,0 +1,26 @@
+envelope opened.wav — vestibule-door
+https://freesound.org/people/vestibule-door/sounds/669720/
+CC0。作者说明使用 Zoom H2n 录制，在 Audacity 中剪辑。项目使用其公开高质量 MP3 试听文件的前 3.1 秒，仅截取和首尾淡入淡出，没有合成声音。
+来源文件：https://cdn.freesound.org/previews/669/669720_14100561-hq.mp3
+
+当前版本改为 Envelope opened.WAV — Nickh69，Zoom H1 真实录音，CC0。
+https://freesound.org/people/Nickh69/sounds/472850/
+公开 MP3 原录音：https://cdn.freesound.org/previews/472/472850_7981740-hq.mp3
+选取 6.95–10.05 秒配合打开动画。翻转声选取用户提供的展开宣纸录音，仅截取、增益与防削波处理。均未合成声音。
+
+当前拆信声：Thick Paper.wav — Vampirella17，CC0，真实厚纸/纸衣折动录音，2009-10-31。
+https://freesound.org/people/Vampirella17/sounds/82439/
+公开试听原文件：https://cdn.freesound.org/previews/82/82439_1276308-hq.mp3
+选取较清晰的 3 秒片段，响度调整及首尾淡出，未做音效合成。
+翻转声改为用户提供宣纸原录音中清晰的 0.8 秒片段，替代原来几乎静音的片段。
+
+明信片弹出声：Thick Paper.wav 原录音 9.85–10.95 秒，单独截取并调整增益；https://freesound.org/people/Vampirella17/sounds/82439/ ，CC0，真实录音。
+
+当前弹出声使用 Nickh69 的 Envelope opened.WAV 真实录音 1.5–2.35 秒的纸张处理片段，降噪和柔化处理，CC0。https://freesound.org/people/Nickh69/sounds/472850/
+
+弹出声最终选取同一真实纸张录音中 7.674–8.524 秒的连续纸张摩擦片段，替代前段零散声音，并做柔化与降噪处理。
+
+当前明信片弹出声：Page Turn, Big Book — supaluci，CC0，真实单次翻书录音，在 Audacity 中录制编辑。
+https://freesound.org/people/supaluci/sounds/726518/
+公开试听文件：https://cdn.freesound.org/previews/726/726518_3199189-hq.mp3
+使用完整单次翻页声音，仅调整响度，没有合成。

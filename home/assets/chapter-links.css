@@ -1,0 +1,18 @@
+.repair-start-link {
+  position: absolute;
+  z-index: 5;
+  left: 507px;
+  top: 289px;
+  width: 145px;
+  height: 36px;
+  border-radius: 12px;
+}
+
+.repair-start-link:hover {
+  box-shadow: 0 0 12px #f4d392a6;
+}
+
+.repair-start-link:focus-visible {
+  outline: 2px solid #fff2cd;
+  outline-offset: 2px;
+}

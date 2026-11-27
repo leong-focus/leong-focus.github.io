@@ -1,0 +1,4 @@
+.gallery-petals{position:absolute;inset:0;overflow:hidden;z-index:3;pointer-events:none;user-select:none}
+.falling-peony-petal{position:absolute;display:block;border-radius:75% 25% 68% 32%;background:linear-gradient(135deg,#fae7e2 8%,#e9b2b2 58%,#d9979f);box-shadow:inset .3px .3px 1px #fff7;opacity:0;transform-origin:center;animation:peony-petal-fall var(--duration) ease-in-out both;will-change:transform,opacity}
+@keyframes peony-petal-fall{0%{opacity:0;transform:translate3d(0,0,0) rotate(-15deg)}12%{opacity:.72}45%{transform:translate3d(calc(var(--sway)*-.25),calc(var(--fall)*.43),0) rotate(55deg) rotateY(48deg);opacity:.65}80%{opacity:.48}100%{transform:translate3d(var(--sway),var(--fall),0) rotate(var(--turn)) rotateY(145deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.gallery-petals{display:none}.falling-peony-petal{animation:none}}

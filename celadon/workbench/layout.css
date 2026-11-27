@@ -1,0 +1,411 @@
+@import url("/assets/exhibition-d40033f7d2/exhibition.css?v=exhibition-keepsake-v2");
+
+.workbench-page .topbar::before,
+.workbench-page .topbar::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  width: 19cqw;
+  aspect-ratio: 2032 / 339;
+  background: url("/celadon/workbench/header-mountain-lines.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.workbench-page .topbar::before {
+  right: calc(50% + 6.65cqw);
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.workbench-page .topbar::after {
+  left: calc(50% + 6.65cqw);
+  transform: translateY(-50%);
+}
+
+.workbench-page .paper-sign {
+  left: 2.7cqw;
+  top: 18.45cqw;
+  width: 32.5cqw;
+  height: 23.4cqw;
+}
+
+.workbench-page .straw-mat {
+  top: 30.24cqw;
+}
+
+.workbench-page .model-contact-shadow {
+  top: 30.7cqw;
+}
+
+.workbench-page .porcelain-scene {
+  top: .6cqw;
+  bottom: -.6cqw;
+}
+
+.workbench-page .decor-right {
+  left: 91.35cqw;
+}
+
+.workbench-page .handkerchief {
+  top: 35.98cqw;
+}
+
+.workbench-page .next-button {
+  left: 76.1cqw;
+  top: 38.15cqw;
+  width: 12cqw;
+  height: 5.45cqw;
+}
+
+.workbench-page .next-button img {
+  object-fit: fill;
+}
+
+.workbench-page .brush-holder {
+  left: 67.65cqw;
+  top: 15.49cqw;
+}
+
+.workbench-page .tool-brush {
+  left: 64.45cqw;
+  top: 14cqw;
+}
+
+.workbench-page .tool-blower {
+  left: 64.25cqw;
+  top: 25.35cqw;
+}
+
+.workbench-page .tool-magnifier {
+  left: 79.85cqw;
+  top: 26.75cqw;
+}
+
+.workbench-page .dust-bowl {
+  left: 86.28cqw;
+  top: 23.6cqw;
+}
+
+.workbench-page .assembly-tray {
+  left: 65.3cqw;
+  top: 17.8cqw;
+  width: 30.64cqw;
+  height: 22.98cqw;
+}
+
+.workbench-page .color-palette {
+  left: 64.9cqw;
+  top: 29.8cqw;
+}
+
+.workbench-page .color-brush {
+  transition: none;
+}
+
+.workbench-page .color-brush-contact {
+  position: absolute;
+  width: .55cqw;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border: 1px solid #fbf6d8;
+  border-radius: 50%;
+  background: #658b74;
+  box-shadow: 0 0 .24cqw #52765d;
+  pointer-events: none;
+}
+
+
+
+/* The take-water GIF includes its own bottle, registered to the still image. */
+.workbench-page .repair-bottle.is-taking {
+  visibility: hidden;
+}
+
+.workbench-page .color-brush > .color-brush-painting {
+  width: 103.3%;
+  height: 103.3%;
+  left: .06%;
+  top: 5.5%;
+  transform-origin: 92.1% 12%;
+  animation: brush-paint-stroke .48s ease-in-out infinite alternate;
+}
+
+@keyframes brush-paint-stroke {
+  from { transform: rotate(-1.2deg); }
+  to { transform: rotate(1.2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workbench-page .color-brush > .color-brush-painting { animation: none; }
+}
+
+/* Fit the painted bounds of the transparent resting artwork to the brush's home position. */
+.workbench-page .color-brush > .color-brush-static-art {
+  width: 142%;
+  height: 178%;
+  inset: -32.2% auto auto -17%;
+}
+
+/* Match the mountain peak and base in the brush-and-rest image. */
+.workbench-page .color-brush-holder {
+  object-fit: fill;
+  transform-origin: top left;
+  transform: matrix(1, .041, -.122, 1, 0, 0);
+}
+
+
+/* Both scenes share the repair layer's work surface as soon as the handoff begins. */
+.assembly-repair-flow:is(.is-transitioning, .is-handoff) .assembly-page > :is(.decor, .handkerchief, .straw-mat, .model-contact-shadow) {
+  visibility: hidden;
+}
+
+.assembly-page:not(.is-transitioning) .assembly-tray {
+  translate: calc(var(--tray-entry-offset, 0) * 100cqw) 0;
+}
+
+.journey-flow[data-stage="assembly"] .assembly-page[aria-busy="true"] :is(.assembly-input-layer, .paper-reset, .next-button) {
+  pointer-events: none;
+}
+
+.journey-flow[data-stage="dust"] .workbench-page :is(.brush-holder, .tool-brush, .tool-blower, .tool-magnifier, .dust-bowl),
+.repair-flow-layer:is(.is-entering, .is-active) .repair-page :is(.repair-bowl, .repair-bottle, .repair-tool),
+.journey-flow[data-stage="color"] .color-page :is(.color-bowl, .color-palette, .color-brush) {
+  animation: tools-from-right .85s cubic-bezier(.22, 1, .36, 1) both;
+  animation-duration: .85s !important;
+}
+
+.journey-flow[data-stage="dust"] .workbench-page .paper-sign {
+  animation: sign-from-left .85s cubic-bezier(.22, 1, .36, 1) both;
+  animation-duration: .85s !important;
+}
+
+@keyframes tools-from-right {
+  from { translate: 60cqw 0; }
+  to { translate: 0 0; }
+}
+
+@keyframes sign-from-left {
+  from { translate: -42cqw 0; }
+  to { translate: 0 0; }
+}
+
+/* Keep the sign in place while the next stage replaces its copy. */
+.assembly-repair-flow .assembly-page .assembly-paper-sign {
+  animation: none !important;
+}
+
+/* These stage changes are authored motion. Match the 3D handoff even when the base CSS shortens other animation. */
+.assembly-page.is-transitioning .assembly-tray {
+  animation-duration: .62s !important;
+}
+
+.assembly-page.is-transitioning :is(.topbar, .next-button) {
+  animation-duration: .52s !important;
+}
+
+/* Match the 874px workbench design and keep one layer through the three handoffs. */
+.stage-progress-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.stage-progress-surface {
+  background: transparent;
+  box-shadow: none;
+}
+
+.stage-progress {
+  --progress-unit: calc(100cqw / 874);
+  position: absolute;
+  top: calc(16 * var(--progress-unit));
+  left: 50%;
+  width: calc(332 * var(--progress-unit));
+  height: calc(110 * var(--progress-unit));
+  translate: -50% 0;
+  color: #3e2716;
+  font-family: "Source Han Serif CN", "Songti SC", SimSun, serif;
+  font-weight: 400;
+}
+
+.stage-progress-track,
+.stage-progress-steps {
+  position: absolute;
+  inset: 0;
+}
+
+.stage-progress-track {
+  background: url("/celadon/stage-progress/track.png") center / contain no-repeat;
+}
+
+.stage-progress-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage-progress-item {
+  position: absolute;
+  inset-block: 0;
+  left: calc((55 + 75 * var(--step)) * var(--progress-unit));
+}
+
+.stage-progress-node,
+.stage-progress-plate,
+.stage-progress-label {
+  position: absolute;
+  left: 0;
+  translate: -50% 0;
+}
+
+.stage-progress-node {
+  --idle-art: url("/celadon/stage-progress/node-idle.png");
+  --completed-art: url("/celadon/stage-progress/node-active.png");
+  top: calc(36 * var(--progress-unit));
+  width: calc(20 * var(--progress-unit));
+  height: calc(20 * var(--progress-unit));
+  background: var(--idle-art) center / contain no-repeat;
+}
+
+.stage-progress-plate {
+  --idle-art: url("/celadon/stage-progress/label-idle.png");
+  --completed-art: url("/celadon/stage-progress/label-active.png");
+  top: calc(48 * var(--progress-unit));
+  width: calc(102 * var(--progress-unit));
+  height: calc(34 * var(--progress-unit));
+  background: var(--idle-art) center / contain no-repeat;
+}
+
+.stage-progress-item[data-completed="true"]:not(:last-child) .stage-progress-node {
+  background-image: var(--completed-art);
+}
+
+.stage-progress-item[data-completed="true"]:not(:last-child) .stage-progress-plate {
+  top: calc(50 * var(--progress-unit));
+  width: calc(89 * var(--progress-unit));
+  height: calc(30 * var(--progress-unit));
+  background-image: var(--completed-art);
+}
+
+/* Crossfade the two pieces of artwork without moving the title or its marker. */
+.stage-progress-item:last-child :is(.stage-progress-node, .stage-progress-plate) {
+  background: none;
+}
+
+.stage-progress-item:last-child :is(.stage-progress-node, .stage-progress-plate)::before,
+.stage-progress-item:last-child :is(.stage-progress-node, .stage-progress-plate)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity .42s ease-in-out;
+  transition-duration: .42s !important;
+}
+
+.stage-progress-item:last-child :is(.stage-progress-node, .stage-progress-plate)::before {
+  background-image: var(--idle-art);
+  opacity: 1;
+}
+
+.stage-progress-item:last-child :is(.stage-progress-node, .stage-progress-plate)::after {
+  background-image: var(--completed-art);
+  opacity: 0;
+}
+
+.stage-progress-item:last-child .stage-progress-plate::after {
+  inset: calc(2 * var(--progress-unit)) auto auto 50%;
+  width: calc(89 * var(--progress-unit));
+  height: calc(30 * var(--progress-unit));
+  translate: -50% 0;
+}
+
+.stage-progress-item:last-child[data-completed="true"] :is(.stage-progress-node, .stage-progress-plate)::before,
+.stage-progress-item:last-child[data-completed="true"] :is(.stage-progress-node, .stage-progress-plate)::after {
+  transition-delay: 1s;
+}
+
+.stage-progress-item:last-child[data-completed="true"] :is(.stage-progress-node, .stage-progress-plate)::before {
+  opacity: 0;
+}
+
+.stage-progress-item:last-child[data-completed="true"] :is(.stage-progress-node, .stage-progress-plate)::after {
+  opacity: 1;
+}
+
+.stage-progress-label {
+  z-index: 2;
+  top: calc(56 * var(--progress-unit));
+  white-space: nowrap;
+  font-size: calc(12 * var(--progress-unit));
+  line-height: calc(17 * var(--progress-unit));
+}
+
+.stage-progress-layer[data-exiting="true"] {
+  animation: fade-stage-progress .32s ease-out both;
+  animation-duration: .32s !important;
+}
+
+@keyframes fade-stage-progress {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.music-badge-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.music-badge-surface {
+  background: transparent;
+  box-shadow: none;
+}
+
+.music-badge-button {
+  position: absolute;
+  top: .55cqw;
+  right: 1.65cqw;
+  width: clamp(40px, 5.1cqw, 58px);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  line-height: 0;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.music-badge-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.48);
+  pointer-events: none;
+}
+
+.music-badge-button[aria-pressed="false"] img { opacity: .66; }
+
+.music-badge-button[aria-pressed="false"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 69%;
+  height: max(2px, .3cqw);
+  translate: -50% -50%;
+  rotate: -43deg;
+  border-radius: 1px;
+  background: #edddba;
+  box-shadow: 0 0 0 1px #51442c;
+  pointer-events: none;
+}
+.music-badge-button:focus-visible { outline: 2px solid #476651; outline-offset: -3px; }
